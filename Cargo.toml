@@ -1,0 +1,11 @@
+[workspace]
+resolver = "3"
+members = ["crates/papers-rs", "crates/papers-rs-cli", "crates/latexenc-rs"]
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+# unwind: a panic of pdf-extract on some PDFs is caught, not the end of the program
+panic = "unwind"
+strip = true
